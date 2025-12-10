@@ -110,20 +110,209 @@ footer {
     border-top: 1px solid #ccc;
 }
 
-/* DETAIL PAGE */
+/* ===== DETAIL PAGE LAYOUT ===== */
 .detail-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 30px;
-    background: white;
-    border-radius: 18px;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
 }
 
 body.dark-mode .detail-container {
     background: #2d2d2d;
 }
 
+/* KOLOM KIRI - GAMBAR */
+.detail-left {
+    position: sticky;
+    top: 30px;
+}
+
+/* Foto utama */
+#main-image {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#main-image:hover {
+    transform: scale(1.01);
+}
+
+/* Container untuk mini gallery */
+.mini-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+/* Thumbnail gambar */
+.thumbnail {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 3px solid transparent;
+    opacity: 0.7;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.thumbnail.active {
+    border-color: #4CAF50;
+    opacity: 1;
+    box-shadow: 0 0 0 2px #4CAF50;
+}
+
+/* Overlay untuk gambar utama diperbesar */
+.image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.image-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+
+.image-overlay.active .overlay-image {
+    transform: scale(1);
+}
+
+.close-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1001;
+    transition: color 0.3s;
+}
+
+.close-overlay:hover {
+    color: #4CAF50;
+}
+
+/* Navigation buttons for overlay */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(76, 175, 80, 0.8);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1001;
+}
+
+.nav-btn:hover {
+    background: rgba(76, 175, 80, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* KOLOM KANAN - SEMUA KONTEN */
+.detail-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Judul utama */
+.detail-right h1 {
+    color: #4CAF50;
+    margin: 0 0 10px 0;
+    font-size: 2.8rem;
+    line-height: 1.2;
+}
+
+/* Styling untuk setiap section */
+.detail-section {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #4CAF50;
+}
+
+body.dark-mode .detail-section {
+    background: #2a2a2a;
+}
+
+.detail-section h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+body.dark-mode .detail-section h2 {
+    color: #eee;
+}
+
+/* Table dalam section */
+.detail-section .bio-table {
+    margin: 0;
+}
+
+/* List dalam section */
+.detail-section .fact-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Gallery besar */
+.detail-section .gallery {
+    margin: 0;
+}
+
+/* DETAIL PAGE STYLE ASLI */
 .detail-img {
     width: 100%;
     border-radius: 15px;
@@ -152,6 +341,16 @@ body.dark-mode .detail-container {
     border-radius: 0 10px 10px 0;
 }
 
+body.dark-mode .bio-table th {
+    background: #66bb6a;
+    color: #000;
+}
+
+body.dark-mode .bio-table td {
+    background: #3a3a3a;
+    color: #eee;
+}
+
 /* FACT LIST */
 .fact-list {
     padding-left: 20px;
@@ -170,7 +369,67 @@ body.dark-mode .detail-container {
     border-radius: 12px;
 }
 
-/* RELATED ARTICLES */
+/* ARTIKEL TERKAIT - khusus styling */
+.related-section {
+    background: #e8f5e9;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #2e7d32;
+}
+
+body.dark-mode .related-section {
+    background: #2d3a2d;
+}
+
+.related-section h2 {
+    color: #2e7d32;
+    margin-top: 0;
+}
+
+body.dark-mode .related-section h2 {
+    color: #81c784;
+}
+
+.related-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.related-list li {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+body.dark-mode .related-list li {
+    background: #3a3a3a;
+}
+
+.related-list li:hover {
+    transform: translateX(5px);
+}
+
+.related-list a {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    font-size: 1.1rem;
+}
+
+body.dark-mode .related-list a {
+    color: #81c784;
+}
+
+.related-list a:hover {
+    color: #4CAF50;
+}
+
+/* RELATED ARTICLES STYLE ASLI */
 .related-list {
     list-style: none;
     padding-left: 0;
@@ -189,12 +448,33 @@ body.dark-mode .detail-container {
 
 /* BACK BUTTON */
 .back-btn {
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
     background: #4CAF50;
     color: white;
-    border-radius: 25px;
+    border-radius: 20px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid #4CAF50;
+    font-size: 0.9rem;
+    margin: 20px auto 0 auto;
+    width: fit-content;
+}
+
+.back-btn:hover {
+    background: transparent;
+    color: #4CAF50;
+    gap: 12px;
+    padding: 8px 25px;
+}
+
+body.dark-mode .back-btn:hover {
+    background: transparent;
+    color: #81C784;
+    border-color: #81C784;
 }
 
 /* FLOATING DARK MODE BTN ON DETAIL PAGES */
@@ -203,13 +483,45 @@ body.dark-mode .detail-container {
     top: 20px;
     right: 20px;
 }
-/* FIX TABEL SAAT DARK MODE */
-body.dark-mode .bio-table th {
-    background: #66bb6a; /* hijau terang */
-    color: #000; /* teks hitam biar terlihat */
-}
 
-body.dark-mode .bio-table td {
-    background: #3a3a3a; 
-    color: #eee;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .detail-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 20px;
+    }
+    
+    .detail-left {
+        position: static;
+    }
+    
+    .detail-right h1 {
+        font-size: 2.2rem;
+    }
+    
+    .mini-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .thumbnail {
+        height: 70px;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .close-overlay {
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+    }
 }
