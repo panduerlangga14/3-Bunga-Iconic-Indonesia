@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    transition: 0.3s;
+}
+
+body.dark-mode {
+    background: #1a1a1a;
+    color: #eee;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.header h1 {
+    margin: 0;
+    color: #4CAF50;
+}
+
+/* DARK MODE */
+.dark-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.dark-btn i {
+    font-size: 20px;
+    color: white;
+}
+
+body.dark-mode .dark-btn {
+    background: #81C784;
+}
+
+.content {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+}
+
+/* CARD */
+.flower-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+body.dark-mode .flower-card {
+    background: #2d2d2d;
+}
+
+.flower-card:hover {
+    transform: translateY(-5px);
+}
+
+.flower-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.flower-info {
+    padding: 20px;
+}
+
+.latin {
+    color: #777;
+    font-style: italic;
+}
+
+/* BUTTON */
+.read-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.read-btn:hover {
+    background: #388E3C;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+}
+
+/* DETAIL PAGE */
+.detail-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .detail-container {
+    background: #2d2d2d;
+}
+
+.detail-img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* TABLE */
+.bio-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-bottom: 25px;
+}
+
+.bio-table th {
+    background: #4CAF50;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px 0 0 10px;
+    width: 35%;
+}
+
+.bio-table td {
+    background: #e8f5e9;
+    padding: 12px 18px;
+    border-radius: 0 10px 10px 0;
+}
+
+/* FACT LIST */
+.fact-list {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* RELATED ARTICLES */
+.related-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+.related-list li {
+    margin: 8px 0;
+}
+
+.related-list a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FLOATING DARK MODE BTN ON DETAIL PAGES */
+.floating-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+/* FIX TABEL SAAT DARK MODE */
+body.dark-mode .bio-table th {
+    background: #66bb6a; /* hijau terang */
+    color: #000; /* teks hitam biar terlihat */
+}
+
+body.dark-mode .bio-table td {
+    background: #3a3a3a; 
+    color: #eee;
+}
