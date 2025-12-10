@@ -6,7 +6,6 @@
     <title>Rafflesia Arnoldii</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 <body>
 
@@ -14,44 +13,204 @@
     <i id="dark-icon" class="fas fa-moon"></i>
 </button>
 
-<div class="detail-container">
-
-    <h1>Rafflesia Arnoldii</h1>
-    <img src="Raflesia.jpg" class="detail-img">
-
-    <h2>Deskripsi Umum</h2>
-    <p>Rafflesia arnoldii adalah bunga terbesar di dunia yang dapat mencapai diameter hingga lebih dari 1 meter dan hanya ditemukan di hutan hujan Sumatera. Bunga ini dikenal sebagai “bunga bangkai” karena aroma menyengat yang dihasilkannya untuk menarik lalat sebagai penyerbuk. Tanaman ini bersifat parasit, hidup menempel pada akar tanaman inang tanpa memiliki batang, daun, atau akar sendiri. Karena proses pertumbuhannya yang sangat lambat dan masa mekarnya yang hanya beberapa hari, Rafflesia termasuk tanaman langka yang dilindungi.</p>
-
-    <h2>Klasifikasi Ilmiah</h2>
-    <table class="bio-table">
-        <tr><th>Nama Ilmiah</th><td>Rafflesia arnoldii</td></tr>
-        <tr><th>Famili</th><td>Rafflesiaceae</td></tr>
-        <tr><th>Habitat</th><td>Hutan Sumatera</td></tr>
-        <tr><th>Tipe</th><td>Parasit</td></tr>
-    </table>
-
-    <h2>Fakta Unik</h2>
-    <ul class="fact-list">
-        <li>Bunga terbesar di dunia.</li>
-        <li>Mengeluarkan bau bangkai.</li>
-        <li>Sangat langka dan dilindungi.</li>
-    </ul>
-
-    <div class="gallery">
-        <img src="Raflesia1.jpg">
-        <img src="Raflesia2.jpg">
-        <img src="Raflesia3.jpg">
-    </div>
-
-    <h2>Artikel Terkait</h2>
-    <ul class="related-list">
-        <li><a href="detail-anggrek.html">Anggrek Bulan</a></li>
-        <li><a href="detail-semar.html">Kantong Semar</a></li>
-    </ul>
-
-    <a href="index.html" class="back-btn">← Kembali</a>
-
+<!-- Overlay untuk gambar besar -->
+<div class="image-overlay" id="imageOverlay">
+    <button class="close-overlay" id="closeOverlay">&times;</button>
+    <img class="overlay-image" id="overlayImage" src="" alt="">
+    <button class="nav-btn prev-btn" id="prevBtn">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="nav-btn next-btn" id="nextBtn">
+        <i class="fas fa-chevron-right"></i>
+    </button>
 </div>
+
+<div class="detail-container">
+    
+    <!-- KOLOM KIRI: GAMBAR -->
+    <div class="detail-left">
+        <!-- Gambar utama (bisa diklik untuk memperbesar) -->
+        <img id="main-image" src="Raflesia.jpg" alt="Rafflesia Arnoldii">
+        
+        <!-- Mini gallery -->
+        <div class="mini-gallery" id="miniGallery">
+            <img class="thumbnail active" src="Raflesia.jpg" data-full="Raflesia.jpg" alt="Rafflesia Arnoldii Utama">
+            <img class="thumbnail" src="Raflesia1.jpg" data-full="Raflesia1.jpg" alt="Rafflesia Arnoldii Variasi 1">
+            <img class="thumbnail" src="Raflesia2.jpg" data-full="Raflesia2.jpg" alt="Rafflesia Arnoldii Variasi 2">
+            <img class="thumbnail" src="Raflesia3.jpg" data-full="Raflesia3.jpg" alt="Rafflesia Arnoldii Variasi 3">
+        </div>
+    </div>
+    
+    <!-- KOLOM KANAN: SEMUA KONTEN -->
+    <div class="detail-right">
+        <!-- Judul -->
+        <h1>Rafflesia Arnoldii</h1>
+        
+        <!-- Deskripsi -->
+        <div class="detail-section">
+            <h2>Deskripsi Umum</h2>
+            <p>Rafflesia arnoldii adalah bunga terbesar di dunia yang dapat mencapai diameter hingga lebih dari 1 meter dan hanya ditemukan di hutan hujan Sumatera. Bunga ini dikenal sebagai "bunga bangkai" karena aroma menyengat yang dihasilkannya untuk menarik lalat sebagai penyerbuk. Tanaman ini bersifat parasit, hidup menempel pada akar tanaman inang tanpa memiliki batang, daun, atau akar sendiri. Karena proses pertumbuhannya yang sangat lambat dan masa mekarnya yang hanya beberapa hari, Rafflesia termasuk tanaman langka yang dilindungi.</p>
+        </div>
+        
+        <!-- Klasifikasi -->
+        <div class="detail-section">
+            <h2>Klasifikasi Ilmiah</h2>
+            <table class="bio-table">
+                <tr><th>Nama Ilmiah</th><td>Rafflesia arnoldii</td></tr>
+                <tr><th>Famili</th><td>Rafflesiaceae</td></tr>
+                <tr><th>Habitat</th><td>Hutan Sumatera</td></tr>
+                <tr><th>Tipe</th><td>Parasit</td></tr>
+            </table>
+        </div>
+        
+        <!-- Fakta -->
+        <div class="detail-section">
+            <h2>Fakta Unik</h2>
+            <ul class="fact-list">
+                <li>Bunga terbesar di dunia</li>
+                <li>Mengeluarkan bau bangkai</li>
+                <li>Sangat langka dan dilindungi</li>
+                <li>Hanya tumbuh di hutan Sumatera</li>
+            </ul>
+        </div>
+        
+        
+        <!-- ARTIKEL TERKAIT -->
+        <div class="related-section">
+            <h2>Artikel Terkait</h2>
+            <ul class="related-list">
+                <li><a href="detail-anggrek.html">
+                    <i class="fas fa-seedling" style="margin-right: 10px;"></i>
+                    Anggrek Bulan - Puspa Pesona Indonesia
+                </a></li>
+                <li><a href="detail-semar.html">
+                    <i class="fas fa-leaf" style="margin-right: 10px;"></i>
+                    Kantong Semar - Tanaman Karnivora Unik
+                </a></li>
+            </ul>
+        </div>
+        
+        <!-- Tombol kembali -->
+        <a href="index.html" class="back-btn">← Kembali</a>
+    </div>
+    
+</div>
+
+<script>
+// JavaScript untuk gallery interaktif
+document.addEventListener('DOMContentLoaded', function() {
+    const mainImage = document.getElementById('main-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const imageOverlay = document.getElementById('imageOverlay');
+    const overlayImage = document.getElementById('overlayImage');
+    const closeOverlay = document.getElementById('closeOverlay');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let currentImageIndex = 0;
+    const images = Array.from(thumbnails).map(thumb => ({
+        src: thumb.getAttribute('src'),
+        fullSrc: thumb.getAttribute('data-full'),
+        alt: thumb.getAttribute('alt')
+    }));
+    
+    // Fungsi untuk mengubah gambar utama
+    function changeMainImage(src, alt) {
+        mainImage.src = src;
+        mainImage.alt = alt;
+        
+        // Update thumbnail aktif
+        thumbnails.forEach(thumb => {
+            thumb.classList.remove('active');
+            if (thumb.getAttribute('src') === src) {
+                thumb.classList.add('active');
+            }
+        });
+        
+        // Update current index
+        currentImageIndex = images.findIndex(img => img.src === src);
+    }
+    
+    // Event listener untuk thumbnail
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function() {
+            const src = this.getAttribute('src');
+            const alt = this.getAttribute('alt');
+            changeMainImage(src, alt);
+        });
+    });
+    
+    // Klik gambar utama untuk memperbesar
+    mainImage.addEventListener('click', function() {
+        openOverlay(currentImageIndex);
+    });
+    
+    // Fungsi untuk membuka overlay
+    function openOverlay(index) {
+        overlayImage.src = images[index].fullSrc || images[index].src;
+        overlayImage.alt = images[index].alt;
+        imageOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Fungsi untuk menutup overlay
+    function closeOverlayFunc() {
+        imageOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Navigasi gambar di overlay
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        openOverlay(currentImageIndex);
+    }
+    
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        openOverlay(currentImageIndex);
+    }
+    
+    // Event listeners
+    closeOverlay.addEventListener('click', closeOverlayFunc);
+    prevBtn.addEventListener('click', showPrevImage);
+    nextBtn.addEventListener('click', showNextImage);
+    
+    // Tutup overlay dengan klik di luar gambar
+    imageOverlay.addEventListener('click', function(e) {
+        if (e.target === imageOverlay) {
+            closeOverlayFunc();
+        }
+    });
+    
+    // Navigasi dengan keyboard
+    document.addEventListener('keydown', function(e) {
+        if (imageOverlay.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeOverlayFunc();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevImage();
+            } else if (e.key === 'ArrowRight') {
+                showNextImage();
+            }
+        }
+    });
+    
+    // Auto-hover effect untuk thumbnail
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('active')) {
+                this.style.opacity = '1';
+            }
+        });
+        
+        thumb.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('active')) {
+                this.style.opacity = '0.7';
+            }
+        });
+    });
+});
+</script>
 
 <script src="script.js"></script>
 </body>
